@@ -5,7 +5,7 @@
 ## 运行步骤
 
 请老师
-在有 Node.js 基础上\n
+在有 Node.js 基础上
 npm install 安装依赖
 npm run dev 启动
 
