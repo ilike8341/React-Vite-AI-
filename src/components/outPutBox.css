@@ -1,0 +1,31 @@
+.outPutBox {
+  align-self: flex-end;
+  position: relative;
+  border-radius: 20px 0px 20px 20px;
+  background-color: rgb(226, 226, 226);
+  padding: 20px 30px;
+
+  min-width: 400px;
+
+  max-width: 40ch;
+  word-break: break-all;
+  white-space: pre-wrap;
+
+  line-height: 1.5;
+  font-size: 23px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  margin: 25px;
+}
+
+.outPutBox::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -20px;
+  width: 20px;
+  height: 20px;
+  background: rgb(226, 226, 226);
+  /* 裁切出右上角三角：从(0,0)到(20,0)到(20,20) */
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+}

@@ -1,0 +1,6 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* 关键！让 padding/border 不撑大元素总尺寸 */
+}
+

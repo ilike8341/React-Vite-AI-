@@ -1,0 +1,58 @@
+.answerBox {
+  align-self: flex-start;
+  position: relative;
+  border-radius: 0px 20px 20px 20px;
+  background-color: rgb(177, 240, 247);
+  padding: 20px 30px;
+
+  min-width: 400px;
+
+  max-width: 40ch;
+  word-break: break-all;
+  white-space: pre-wrap;
+
+  line-height: 1.5;
+  font-size: 23px;
+  font-family: Arial, Helvetica, sans-serif;
+
+  margin: 25px;
+}
+
+.answerBox::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 20px;
+  height: 20px;
+  background: rgb(177, 240, 247);
+  clip-path: polygon(0 0, 100% 0, 100% 100%);
+}
+.copyButton {
+  border-radius: 10px;
+  justify-self: end;
+  width: 80px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background-color: rgb(186, 255, 232);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-size: 18px;
+}
+
+.reGenerateButton {
+  border-radius: 10px;
+  justify-self: end;
+  width: 80px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background-color: rgb(186, 255, 232);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-size: 18px;
+  margin-left: 30px;
+}

@@ -1,0 +1,58 @@
+/* Sidebar.css */
+.sidebar-header {
+  display: flex; /* 标题+按钮横向排列 */
+  justify-content: space-between; /* 两端对齐 */
+  align-items: center; /* 垂直居中 */
+  padding: 15px;
+}
+
+.clearBtn {
+  border-radius: 10px;
+  width: 80px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-size: 20px;
+}
+
+.history-list {
+  border-style: solid;
+  border-width: 3px;
+  padding: 15px;
+  border-radius: 10px;
+  height: 600px;
+  overflow: auto;
+  background-color: rgb(180, 238, 251);
+}
+
+.history-item {
+  text-align: center;
+  border-radius: 10px;
+  margin: 12px;
+  padding: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.history-item:hover {
+  background: #e9e9e9;
+}
+
+.history-item.active {
+  background: #ffffff;
+  color: #1174ff;
+}
+.login {
+  border-style: solid;
+  border-width: 3px;
+  height: 200px;
+  margin-top: 50px;
+  border-radius: 10px;
+  background-color: rgb(180, 238, 251);
+}

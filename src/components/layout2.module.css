@@ -1,0 +1,74 @@
+/* 外层 Grid 容器：核心布局参数（按你的需求修改） */
+.gridContainer {
+  display: grid;
+  width: 100vw; /* 占满屏幕宽度 */
+  height: 100vh; /* 占满屏幕高度 */
+  gap: none; /* 取消网格间距 */
+
+  /* 列：左侧400px + 右侧自适应（你要的修改） */
+  grid-template-columns: 340px 1fr;
+  /* 行：右侧上30px + 右侧中自适应 + 右侧下150px（你要的修改） */
+  grid-template-rows: 50px 1fr 250px;
+
+  /* 网格区域分配：绑定每个子元素的位置 */
+  grid-template-areas:
+    "left rightTop" /* 第一行：左侧 + 右侧上 */
+    "left rightMiddle" /* 第二行：左侧 + 右侧中（自适应高度） */
+    "left rightBottom"; /* 第三行：左侧 + 右侧下 */
+
+  background-color: rgb(240, 240, 240);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+/* 左侧栏：绑定到 grid-area: left */
+.leftSide {
+  grid-area: left;
+  width: 340px; /* 固定宽度 */
+  background: #56e9e6;
+  border-right: 1px solid #eee;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+/* 右侧上：绑定到 grid-area: rightTop */
+.rightTop {
+  grid-area: rightTop;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+/* 右侧中：绑定到 grid-area: rightMiddle（自动填充高度） */
+.rightMiddle {
+  /*flex来辣*/
+  grid-area: rightMiddle;
+  display: flex;
+  flex-direction: column;
+  background: #fafafa;
+  overflow: auto; /* 内容超出时滚动 */
+  box-sizing: border-box;
+  padding: 100px;
+  padding-bottom: 20px;
+}
+
+/* 右侧下：绑定到 grid-area: rightBottom */
+.rightBottom {
+  grid-area: rightBottom;
+  background: #fff;
+  border-top: 1px solid #eee;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.couple {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}

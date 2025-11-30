@@ -1,0 +1,46 @@
+.greetingWrapper {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 30px;
+  opacity: 1;
+  transform: translateY(0); /* 初始位置 */
+  transition: none;
+}
+
+@keyframes logo-spin-right {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.myLogo {
+  transition: filter 0.7s ease;
+  animation: logo-spin-right infinite 20s linear;
+}
+
+.myLogo:hover {
+  filter: drop-shadow(0 0 0.3em black);
+}
+
+.greetingWrapper--leaving {
+  /* 动画：fadeOut 动画，持续 0.5 秒，结束后保持最终状态 */
+  animation: fadeOut 0.5s forwards;
+}
+
+/* 定义淡出动画的具体效果 */
+@keyframes fadeOut {
+  from {
+    /* 动画开始：完全显示，位置不变 */
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    /* 动画结束：完全透明，轻微下移（增强视觉效果） */
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}

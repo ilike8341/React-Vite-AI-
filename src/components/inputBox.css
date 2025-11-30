@@ -1,0 +1,137 @@
+/*div {
+  outline: 10px solid rgba(255, 0, 0, 0.3) !important; 红色半透明边框（不影响布局） 
+  background: rgba(6, 126, 30, 0.05) !important; */
+
+.inputBoxWrapper {
+  display: grid;
+  grid-template-columns: 1fr; /* 1列 */
+  grid-template-rows: 100px 1fr;
+  gap: 20px;
+
+  max-width: 1200px;
+  width: 90%;
+  padding: 25px;
+  height: 210px;
+  border: solid;
+  border-radius: 20px;
+  border-width: 3px;
+  border-color: rgb(0, 0, 0);
+  background-color: white;
+  box-shadow: 3px 3px 4px rgb(118, 209, 209);
+}
+
+.inputBox {
+  resize: none;
+
+  transition: none;
+  outline: none;
+  margin: 0px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  border: 0; /* 去掉默认边框（若需要边框，后续手动加，且会被 box-sizing 包含） */
+  padding: 0; /* 去掉默认内边距（若需要内边距，加在这，会被 box-sizing 包含） */
+  /* 2. 关键：让宽高包含 border/padding，避免“向外扩展” */
+
+  line-height: 1.5;
+  font-size: 23px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.submitBtn {
+  position: relative;
+  border-radius: 10px;
+  justify-self: end;
+  width: 80px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background-color: rgb(186, 255, 232);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-size: 18px;
+}
+
+.submitBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 10px;
+  pointer-events: none;
+
+  /* 优化1：初始宽度0 + 透明边框，避免"先出现再加深" */
+  border: 2px solid transparent;
+  /* 优化2：用opacity控制显隐，而非宽度变化 */
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.submitBtn:not(:disabled):hover {
+  transform: scale(1.1); /* 按钮放大1.05倍（可调整比例） */
+  background-color: rgb(156, 255, 255);
+}
+
+.submitBtn:not(:disabled):hover::before {
+  /* hover时仅改变透明度和颜色，宽度不变 */
+  opacity: 1;
+  border-color: rgb(223, 212, 232);
+}
+
+.submitBtn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+  transition: all 0.4s ease;
+}
+
+/* 伪元素基础样式：默认隐藏（透明+下移），并设置过渡 */
+.submitBtn:disabled::after {
+  content: "请先输入问题呀！";
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 18px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 999;
+
+  /* 初始状态：透明+下移 */
+  opacity: 0;
+  /* 关键：移出时的过渡（淡出+滑出） */
+  transition: all 0.4s ease;
+}
+
+.submitBtn.true:disabled::after {
+  content: "等我回答完这个问题~";
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 18px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 999;
+
+  /* 初始状态：透明+下移 */
+  opacity: 0;
+  /* 关键：移出时的过渡（淡出+滑出） */
+  transition: all 0.4s ease;
+}
+
+/* hover时：触发淡入动画+显示 */
+.submitBtn:disabled:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  /* 移入动画（仅执行一次） */
+}
